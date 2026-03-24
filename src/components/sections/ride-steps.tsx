@@ -1,6 +1,8 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { bookingLink } from "./hero";
 
 interface Step {
   number: number;
@@ -24,8 +26,7 @@ const steps: Step[] = [
   {
     number: 3,
     title: "Board",
-    description:
-      "Take a seat, fasten your seatbelt, and you're ready to go!",
+    description: "Take a seat, fasten your seatbelt, and you're ready to go!",
   },
 ];
 
@@ -56,16 +57,24 @@ export function RideStepsSection() {
                 </div>
               </div>
               <div className="flex flex-col md:flex-row gap-4 md:gap-[18px]">
-                <Button
-                  variant="primary"
-                  icon={<ArrowIcon />}
-                  className="w-full md:w-auto"
-                >
-                  Reserve your slot
-                </Button>
-                <Button variant="outline" className="w-full md:w-auto border-[#464646]">
-                  See all pick-up &amp; drop-off locations
-                </Button>
+                <Link href={bookingLink}>
+                  <Button
+                    variant="primary"
+                    icon={<ArrowIcon />}
+                    className="w-full md:w-auto"
+                  >
+                    Reserve your slot
+                  </Button>
+                </Link>
+
+                <Link href={"#routes"}>
+                  <Button
+                    variant="outline"
+                    className="w-full md:w-auto border-[#464646]"
+                  >
+                    See all pick-up &amp; drop-off locations
+                  </Button>
+                </Link>
               </div>
             </div>
 

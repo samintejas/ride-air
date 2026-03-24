@@ -2,13 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 const linkCol1 = [
-  { label: "Contact us", href: "/contact" },
-  { label: "Privacy notice", href: "/privacy" },
+  {
+    label: "Contact us",
+    href: "https://help.grab.com/passenger/en-sg/40001634-Report-an-issue-with-Ai.R-Shuttle",
+    isExternal: true,
+  },
+  {
+    label: "Privacy notice",
+    href: "https://www.grab.com/sg/terms-policies/privacy-notice/",
+    isExternal: true,
+  },
 ] as const;
 
 const linkCol2 = [
-  { label: "Terms of service", href: "/terms" },
-  { label: "Code of conduct", href: "/conduct" },
+  {
+    label: "Terms of service",
+    href: "/terms#grab-av-pilot-terms",
+    isExternal: true,
+  },
+  {
+    label: "Code of conduct",
+    href: "/terms#code-of-conduct",
+    isExternal: true,
+  },
 ] as const;
 
 export function Footer() {

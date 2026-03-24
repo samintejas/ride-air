@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { Logo } from "@/components/logo";
+import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
-import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { useEffect, useState } from "react";
+import { YoutubeModal } from "./youtube-modal";
 
 const desktopNavLinks = [
   { label: "Why us", href: "#features" },
@@ -13,8 +14,28 @@ const desktopNavLinks = [
   { label: "How to book", href: "#steps" },
 ] as const;
 
+export const bookingLink = "https://form.gov.sg/69c13c7d7c56b5231f73a94d";
+
 export function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState(false);
+
+  const openYoutubeModal = () => {
+    setIsOpenYoutubeModal(true);
+  };
+
+  const closeYoutubeModal = () => {
+    setIsOpenYoutubeModal(false);
+  };
+
+  useEffect(() => {
+    if (isOpenYoutubeModal) {
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "auto";
+    }
+  }, [isOpenYoutubeModal]);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-black">
@@ -48,9 +69,33 @@ export function HeroSection() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line
+                  x1="4"
+                  y1="7"
+                  x2="20"
+                  y2="7"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="4"
+                  y1="12"
+                  x2="20"
+                  y2="12"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="4"
+                  y1="17"
+                  x2="20"
+                  y2="17"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
             <Logo className="h-8" color="white" />
@@ -67,16 +112,28 @@ export function HeroSection() {
                 key={link.href}
                 href={link.href}
                 className="opacity-80 hover:opacity-100 transition-opacity text-center"
-                style={{ width: link.label === "Why us" ? 76 : link.label === "Our routes" ? 132 : 100 }}
+                style={{
+                  width:
+                    link.label === "Why us"
+                      ? 76
+                      : link.label === "Our routes"
+                        ? 132
+                        : 100,
+                }}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <Button variant="secondary" className="h-12 text-sm md:text-base whitespace-nowrap px-[18px]">
-            Reserve your slot
-          </Button>
+          <Link href={bookingLink}>
+            <Button
+              variant="secondary"
+              className="h-12 text-sm md:text-base whitespace-nowrap px-[18px]"
+            >
+              Reserve your slot
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile menu dropdown */}
@@ -97,9 +154,9 @@ export function HeroSection() {
       </nav>
 
       {/* Large Ai.R watermark */}
-      <div className="absolute top-16 md:top-24 left-0 md:left-[30%] md:-translate-x-1/2 z-10 opacity-20 pointer-events-none">
+      {/* <div className="absolute top-16 md:top-24 left-0 md:left-[30%] md:-translate-x-1/2 z-10 opacity-20 pointer-events-none">
         <Logo className="h-[280px] md:h-[380px]" color="white" />
-      </div>
+      </div> */}
 
       {/* Content overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0 md:px-[94px] md:pb-[61px] md:pt-12">
@@ -124,13 +181,15 @@ export function HeroSection() {
               <p className="text-sm md:text-base text-white leading-[1.3] flex-1 md:flex-none md:whitespace-nowrap">
                 Be first in line to experience the future of transport
               </p>
-              <Button
-                variant="primary"
-                icon={<ArrowIcon />}
-                className="shrink-0"
-              >
-                Learn more
-              </Button>
+              <Link href={desktopNavLinks[2].href}>
+                <Button
+                  variant="primary"
+                  icon={<ArrowIcon />}
+                  className="shrink-0"
+                >
+                  Learn more
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile: video bar */}
@@ -148,7 +207,13 @@ export function HeroSection() {
                 <span className="text-sm text-white flex items-center gap-1.5">
                   Get to know Ai.R
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 12L12 4M12 4H5M12 4V11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M4 12L12 4M12 4H5M12 4V11"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </span>
               </Link>
@@ -166,13 +231,27 @@ export function HeroSection() {
 
           {/* Desktop: video card */}
           <div className="hidden md:flex shrink-0 w-[315px] h-[177px] rounded-[11px] overflow-hidden relative bg-black/40">
-            <Image
+            {/* <Image
               src="/images/hero-bg-new.jpg"
               alt="Grab Ai.R Technology video"
               fill
               className="object-cover opacity-60"
+            /> */}
+
+            <video
+              src="/videos/hero-video.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="h-full w-full cursor-pointer"
             />
-            <div className="absolute inset-0 flex items-end justify-between p-[13px]">
+
+            <div
+              onClick={openYoutubeModal}
+              className="absolute inset-0 flex items-end justify-between p-[13px] cursor-pointer"
+            >
               <div className="flex flex-col gap-[3px] text-white">
                 <p className="text-xs leading-[1.3] tracking-wide uppercase">
                   See how it works
@@ -196,6 +275,12 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      {isOpenYoutubeModal && (
+        <YoutubeModal
+          videoURL="https://www.youtube.com/embed/EAzMaz5Vpsg"
+          onClose={closeYoutubeModal}
+        />
+      )}
     </section>
   );
 }

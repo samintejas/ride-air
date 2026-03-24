@@ -1,6 +1,8 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { bookingLink } from "./hero";
 
 export function CtaBannerSection() {
   return (
@@ -25,9 +27,12 @@ export function CtaBannerSection() {
         <h2 className="text-[32px] md:text-[48px] font-medium text-white tracking-[-0.48px] leading-[1.4] text-center max-w-[581px]">
           Be first in line to experience the future of transport
         </h2>
-        <Button variant="primary" icon={<ArrowIcon />}>
-          Reserve your slot
-        </Button>
+
+        <Link href={bookingLink}>
+          <Button variant="primary" icon={<ArrowIcon />}>
+            Reserve your slot
+          </Button>
+        </Link>
       </div>
     </section>
   );
