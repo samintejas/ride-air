@@ -11,10 +11,10 @@ import { YoutubeModal } from "./youtube-modal";
 const desktopNavLinks = [
   { label: "Why us", href: "#features" },
   { label: "Our routes", href: "#routes" },
-  { label: "How to book", href: "#steps" },
+  { label: "How to reserve", href: "#steps" },
 ] as const;
 
-export const bookingLink = "https://form.gov.sg/69c13c7d7c56b5231f73a94d";
+export const bookingLink = "https://grb.to/av-form"; //"https://form.gov.sg/69c13c7d7c56b5231f73a94d";
 
 export function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -193,15 +193,28 @@ export function HeroSection() {
             </div>
 
             {/* Mobile: video bar */}
-            <div className="flex lg:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]">
+            <div
+              onClick={openYoutubeModal}
+              className="flex lg:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]"
+            >
               <Link href="#" className="flex items-center gap-4">
                 <div className="w-[103px] h-[58px] rounded-md bg-white/10 overflow-hidden">
-                  <Image
+                  {/* <Image
                     src="/images/hero-bg-new.jpg"
                     alt="Ai.R video thumbnail"
                     width={103}
                     height={58}
                     className="object-cover w-full h-full opacity-70"
+                  /> */}
+
+                  <video
+                    src="/videos/hero-video.webm"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="h-full w-full cursor-pointer"
                   />
                 </div>
                 <span className="text-sm text-white flex items-center gap-1.5">

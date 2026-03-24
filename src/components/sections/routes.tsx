@@ -25,10 +25,10 @@ function LocationButton({ src }: LocationButtonProps) {
   );
 }
 
-export const location1 =
-  "https://www.google.com/maps/place/Sheng+Siong+Supermarket/@1.4017201,103.8924234,21z/data=!3m1!5s0x31da15e0116c3cc5:0x23026abb0a7b58e0!4m6!3m5!1s0x31da1522f42940e3:0xe965477e810ce928!8m2!3d1.4019589!4d103.8921939!16s%2Fg%2F11h18ccmw2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
-export const location2 =
-  "https://www.google.com/maps/place/Tower+82+(Punggol+Digital+District)/@1.4151488,103.9087826,17z/data=!3m1!4b1!4m6!3m5!1s0x31da15007233a7c5:0x58842fac3380e6cb!8m2!3d1.4151488!4d103.9087826!16s%2Fg%2F11y6st56mv?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
+export const location1 = "https://maps.app.goo.gl/YCvvsAJpqyHHDEP86Route";
+// "https://www.google.com/maps/place/Sheng+Siong+Supermarket/@1.4017201,103.8924234,21z/data=!3m1!5s0x31da15e0116c3cc5:0x23026abb0a7b58e0!4m6!3m5!1s0x31da1522f42940e3:0xe965477e810ce928!8m2!3d1.4019589!4d103.8921939!16s%2Fg%2F11h18ccmw2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
+export const location2 = "https://maps.app.goo.gl/yAkX2ZWZPbpBQFsRACan";
+//"https://www.google.com/maps/place/Tower+82+(Punggol+Digital+District)/@1.4151488,103.9087826,17z/data=!3m1!4b1!4m6!3m5!1s0x31da15007233a7c5:0x58842fac3380e6cb!8m2!3d1.4151488!4d103.9087826!16s%2Fg%2F11y6st56mv?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
 
 export function RoutesSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -82,7 +82,7 @@ export function RoutesSection() {
           {/* Mobile: tabs */}
           <div className="w-full xl:hidden">
             <div className="flex rounded-xl bg-[#C6C6C6] overflow-hidden p-1">
-              {["Route 1", "Route 2"].map((name, i) => (
+              {["Route 1", "Route 3"].map((name, i) => (
                 <button
                   key={name}
                   type="button"
