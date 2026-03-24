@@ -20,7 +20,7 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden bg-black">
       {/* Background image */}
       <Image
-        src="/images/hero-bg.webp"
+        src="/images/hero-bg-new.jpg"
         alt="Ai.R autonomous shuttle on Singapore streets"
         fill
         className="object-cover object-center"
@@ -37,7 +37,7 @@ export function HeroSection() {
       />
 
       {/* Navigation bar */}
-      <nav className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-1rem)] md:w-[720px]">
+      <nav className="absolute top-7 md:top-10 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-2rem)] md:w-[720px]">
         <div className="flex items-center justify-between backdrop-blur-[29px] bg-[rgba(15,15,15,0.34)] rounded-full h-[68px] pl-3.5 md:pl-5 pr-2 py-2">
           {/* Mobile: hamburger + logo */}
           <div className="flex items-center gap-3 md:hidden">
@@ -67,13 +67,14 @@ export function HeroSection() {
                 key={link.href}
                 href={link.href}
                 className="opacity-80 hover:opacity-100 transition-opacity text-center"
+                style={{ width: link.label === "Why us" ? 76 : link.label === "Our routes" ? 132 : 100 }}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <Button variant="secondary" className="h-12 text-sm md:text-base whitespace-nowrap px-4 md:px-[18px]">
+          <Button variant="secondary" className="h-12 text-sm md:text-base whitespace-nowrap px-[18px]">
             Reserve your slot
           </Button>
         </div>
@@ -101,17 +102,16 @@ export function HeroSection() {
       </div>
 
       {/* Content overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-4 md:px-24 md:pb-16 md:pt-12">
+      <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0 md:px-[94px] md:pb-[61px] md:pt-12">
         <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-8">
           {/* Left: headline + CTA */}
-          <div className="flex flex-col gap-5 md:gap-8 md:max-w-[769px]">
+          <div className="flex flex-col gap-5 md:gap-[34px] md:max-w-[769px]">
             {/* Headline */}
             <div className="flex flex-col gap-2">
-              <h1 className="text-[32px] md:text-[52px] font-medium md:font-semibold text-white tracking-tight md:tracking-wide leading-[1.3] md:leading-[1.2] max-w-[566px]">
-                A new way to ride, Powered by{" "}
-                <span className="text-white">Ai.R</span>
+              <h1 className="text-[32px] md:text-[52px] font-medium md:font-semibold text-white tracking-[-0.5px] md:tracking-[1.04px] leading-[1.3] md:leading-[1.2] md:max-w-[566px]">
+                A new way to ride, Powered by Ai.R
               </h1>
-              <p className="text-sm md:text-xl text-[#afafaf] leading-[1.3]">
+              <p className="text-sm md:text-xl text-[#afafaf] leading-[1.3] md:max-w-[769px]">
                 Ai.R, powered by Grab, is an autonomous service connecting
                 neighbourhoods, transport nodes and key destinations. Its
                 state-of-the-art fleet uses advanced sensors and intelligent
@@ -120,8 +120,8 @@ export function HeroSection() {
             </div>
 
             {/* CTA bar */}
-            <div className="flex items-center bg-[rgba(76,73,73,0.27)] rounded-full pl-6 pr-2 py-2 gap-6 w-fit">
-              <p className="text-sm md:text-base text-white leading-[1.3] whitespace-nowrap">
+            <div className="flex items-center bg-[rgba(76,73,73,0.27)] rounded-full pl-6 pr-2 py-2 gap-3 md:gap-6 md:w-fit">
+              <p className="text-sm md:text-base text-white leading-[1.3] flex-1 md:flex-none md:whitespace-nowrap">
                 Be first in line to experience the future of transport
               </p>
               <Button
@@ -134,11 +134,11 @@ export function HeroSection() {
             </div>
 
             {/* Mobile: video bar */}
-            <div className="flex md:hidden items-center justify-between border-t border-white/40 pt-4 pb-4">
+            <div className="flex md:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]">
               <Link href="#" className="flex items-center gap-4">
                 <div className="w-[103px] h-[58px] rounded-md bg-white/10 overflow-hidden">
                   <Image
-                    src="/images/hero-bg.webp"
+                    src="/images/hero-bg-new.jpg"
                     alt="Ai.R video thumbnail"
                     width={103}
                     height={58}
@@ -167,17 +167,17 @@ export function HeroSection() {
           {/* Desktop: video card */}
           <div className="hidden md:flex shrink-0 w-[315px] h-[177px] rounded-[11px] overflow-hidden relative bg-black/40">
             <Image
-              src="/images/hero-bg.webp"
+              src="/images/hero-bg-new.jpg"
               alt="Grab Ai.R Technology video"
               fill
               className="object-cover opacity-60"
             />
-            <div className="absolute inset-0 flex items-end justify-between p-3.5">
-              <div className="flex flex-col gap-1 text-white">
-                <p className="text-xs tracking-[2px] uppercase">
+            <div className="absolute inset-0 flex items-end justify-between p-[13px]">
+              <div className="flex flex-col gap-[3px] text-white">
+                <p className="text-xs leading-[1.3] tracking-wide uppercase">
                   See how it works
                 </p>
-                <p className="text-lg font-semibold tracking-tight">
+                <p className="text-lg font-semibold leading-[1.3]">
                   Grab Ai.R Technology
                 </p>
               </div>

@@ -1,102 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 
-interface RouteStop {
-  name: string;
-  detail: string;
-  type: "stop" | "pickup";
-}
-
-interface RouteData {
-  id: string;
-  name: string;
-  duration: string;
-  stops: readonly RouteStop[];
-}
-
-const routes: RouteData[] = [
-  {
-    id: "route-1",
-    name: "Route 1",
-    duration: "50 mins",
-    stops: [
-      { name: "Oasis Terrace", detail: "Shopping centre", type: "stop" },
-      { name: "Matilda Court", detail: "231 Sumang Lane", type: "pickup" },
-      { name: "Punggol Plaza", detail: "Shopping mall", type: "stop" },
-      { name: "Punggol Clover", detail: "BLK 204A", type: "stop" },
-    ],
-  },
-  {
-    id: "route-3",
-    name: "Route 3",
-    duration: "50 mins",
-    stops: [
-      { name: "Punggol Northshore", detail: "BLK 420A", type: "stop" },
-      { name: "Punggol Coast Mall", detail: "Tower 82 Lobby", type: "pickup" },
-      { name: "One Punggol", detail: "Sam Kee LRT", type: "stop" },
-      { name: "Matilda Court", detail: "BLK 231", type: "stop" },
-      { name: "Punggol Clover", detail: "BLK 204A", type: "stop" },
-    ],
-  },
-];
-
-const miniRoute: RouteData = {
-  id: "route-3-mini",
-  name: "Route 3 Mini",
-  duration: "20 mins",
-  stops: [
-    { name: "Punggol Northshore", detail: "Blk 410A", type: "stop" },
-    { name: "Punggol Coast Mall", detail: "Tower 82 Lobby", type: "pickup" },
-    { name: "One Punggol", detail: "Sam Kee LRT", type: "stop" },
-  ],
-};
-
-function RouteLoop({ route, dark = false }: { route: RouteData; dark?: boolean }) {
-  const borderColor = dark ? "border-white/25" : "border-[#d4d4d4]";
-  const textColor = dark ? "text-white" : "text-content-primary";
-  const subColor = dark ? "text-white/60" : "text-content-secondary";
-
+function LocationButton() {
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="relative w-40 h-64 mx-auto">
-        <div className={`absolute inset-0 border-[3px] ${borderColor} rounded-full`} />
-        {/* Shuttle dots */}
-        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary-b border-2 border-white shadow" />
-        <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary-b border-2 border-white shadow" />
-        <div className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-a border-2 border-white shadow" />
-        <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 rounded-full bg-primary-a border-2 border-white shadow" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <p className={`text-xl font-semibold ${textColor}`}>{route.duration}</p>
-            <p className={`text-xs ${subColor}`}>Ride</p>
-          </div>
-        </div>
-      </div>
-      <div className="w-full grid grid-cols-2 gap-3">
-        {route.stops.map((stop) => (
-          <div key={stop.name} className="flex items-start gap-2 text-sm">
-            <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${stop.type === "pickup" ? "bg-primary-a" : "bg-primary-b"}`} />
-            <div>
-              <p className={`font-medium ${textColor}`}>{stop.name}</p>
-              <p className={`text-xs ${subColor}`}>{stop.detail}</p>
-              {stop.type === "pickup" && (
-                <span className="text-[10px] font-semibold uppercase text-primary-a">Pick-up / Drop-off</span>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-      <button type="button" className={`flex items-center gap-2 text-sm font-medium ${subColor}`}>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-          <path d="M8 4V8L11 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-        View pick-up and drop-off locations
-      </button>
-    </div>
+    <button
+      type="button"
+      className="inline-flex items-center gap-2 border border-[#464646] rounded-full px-3.5 py-3 text-base font-medium text-[#272727] hover:bg-black/5 transition-colors"
+    >
+      <Image src="/images/location-icon.svg" alt="" width={20} height={20} />
+      View pick-up and drop-off locations
+    </button>
   );
 }
 
@@ -104,148 +21,270 @@ export function RoutesSection() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="routes" className="bg-white px-4 md:px-16 py-12 md:py-20">
-      <div className="max-w-5xl mx-auto flex flex-col items-center gap-8">
+    <section id="routes" className="bg-[#efe8fa]">
+      <div className="max-w-[1440px] mx-auto px-4 py-12 md:px-[94px] md:py-[96px] flex flex-col items-center gap-12 md:gap-[74px]">
         {/* Header */}
-        <div className="text-center flex flex-col gap-4">
-          <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight leading-[1.3]">
-            We&apos;re currently{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
-              operate 2 out of 3 looped
-            </span>{" "}
-            shuttle service routes.
-          </h2>
-          <div className="flex flex-col md:flex-row md:justify-center md:gap-6 gap-1 text-sm text-content-secondary">
-            <p>
-              Monday to Friday{" "}
-              <span className="font-semibold text-content-primary">9:30AM to 5:30PM</span>
-            </p>
-            <p>
-              Last ride departs at{" "}
-              <span className="font-semibold text-content-primary">4:30 PM</span>
-            </p>
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-6">
+            <div className="text-center">
+              <h2 className="text-[32px] md:text-[48px] font-medium tracking-[-0.48px] leading-[1.4] max-w-[712px]">
+                We&apos;re currently{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
+                  operating 2 out of 3 looped
+                </span>{" "}
+                shuttle service routes.
+              </h2>
+            </div>
+
+            {/* Schedule info */}
+            <div className="bg-[#faf5ff] rounded-xl px-4 py-4 md:px-[42px] md:py-[18px] w-full md:w-[712px]">
+              <div className="flex flex-col md:flex-row md:items-center md:gap-8 gap-2 text-center md:text-right text-base md:text-lg">
+                <div className="flex items-center justify-center gap-2 md:pr-8 md:border-r md:border-stroke-primary">
+                  <span className="text-content-secondary">Monday to Friday</span>
+                  <span className="text-content-primary">9:30AM to 5:30PM</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <span className="text-content-secondary">Last ride departs at</span>
+                  <span className="text-content-primary">4:30 PM</span>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <Button variant="primary" icon={<ArrowIcon />}>
+            Reserve your slot
+          </Button>
         </div>
 
-        <Button variant="primary" icon={<ArrowIcon />}>
-          Reserve your slot
-        </Button>
+        {/* Route cards */}
+        <div className="w-full flex flex-col items-center gap-14">
+          {/* Mobile: tabs */}
+          <div className="w-full md:hidden">
+            <div className="flex rounded-full bg-white overflow-hidden p-1">
+              {["Route 1", "Route 2"].map((name, i) => (
+                <button
+                  key={name}
+                  type="button"
+                  onClick={() => setActiveTab(i)}
+                  className={`flex-1 py-3 text-base font-medium rounded-full transition-colors ${
+                    activeTab === i ? "bg-content-primary text-white" : "text-content-primary"
+                  }`}
+                >
+                  {name}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        {/* Mobile: tabs */}
-        <div className="w-full md:hidden">
-          <div className="flex rounded-full border border-stroke-secondary overflow-hidden">
-            {routes.map((route, i) => (
-              <button
-                key={route.id}
-                type="button"
-                onClick={() => setActiveTab(i)}
-                className={`flex-1 py-3 text-base font-medium transition-colors ${
-                  activeTab === i ? "bg-content-primary text-white" : "bg-white text-content-primary"
-                }`}
-              >
-                {route.name}
-              </button>
+          {/* Mobile: single route */}
+          <div className="w-full md:hidden">
+            <div className="relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
+              {/* Background pattern */}
+              <Image
+                src="/images/route-card-bg.jpg"
+                alt=""
+                fill
+                className="object-cover opacity-[0.66]"
+              />
+              {/* Tab label */}
+              <div className="relative flex justify-center -mt-px">
+                <div className="relative">
+                  <Image src="/images/route-tab-label.svg" alt="" width={178} height={40} />
+                  <span className="absolute inset-0 flex items-center justify-center text-sm font-medium text-content-primary">
+                    {activeTab === 0 ? "ROUTE 1" : "ROUTE 3"}
+                  </span>
+                </div>
+              </div>
+              {/* Route image */}
+              <div className="relative px-4 py-4">
+                <Image
+                  src={activeTab === 0 ? "/images/route-1.png" : "/images/route-3.png"}
+                  alt={activeTab === 0 ? "Route 1 map" : "Route 3 map"}
+                  width={506}
+                  height={454}
+                  className="w-full h-auto"
+                />
+              </div>
+              {/* Location button */}
+              <div className="relative flex justify-center pb-8">
+                <LocationButton />
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: side-by-side routes */}
+          <div className="hidden md:flex md:gap-14 w-full">
+            {[
+              { name: "ROUTE 1", image: "/images/route-1.png", imgW: 506, imgH: 454 },
+              { name: "ROUTE 3", image: "/images/route-3.png", imgW: 506, imgH: 444 },
+            ].map((route) => (
+              <div key={route.name} className="flex-1 relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white h-[652px]">
+                {/* Background pattern */}
+                <Image
+                  src="/images/route-card-bg.jpg"
+                  alt=""
+                  fill
+                  className="object-cover opacity-[0.66]"
+                />
+                {/* Tab label */}
+                <div className="relative flex justify-center -mt-px">
+                  <div className="relative">
+                    <Image src="/images/route-tab-label.svg" alt="" width={327} height={52} />
+                    <span className="absolute inset-0 flex items-center justify-center text-xl font-medium text-content-primary">
+                      {route.name}
+                    </span>
+                  </div>
+                </div>
+                {/* Route image */}
+                <div className="relative flex justify-center px-[57px] pt-4">
+                  <Image
+                    src={route.image}
+                    alt={`${route.name} map`}
+                    width={route.imgW}
+                    height={route.imgH}
+                    className="w-full h-auto"
+                  />
+                </div>
+                {/* Location button */}
+                <div className="absolute bottom-[27px] left-1/2 -translate-x-1/2">
+                  <LocationButton />
+                </div>
+              </div>
             ))}
           </div>
-        </div>
 
-        {/* Mobile: single route */}
-        <div className="w-full md:hidden bg-surface-primary rounded-2xl p-6">
-          <div className="text-center mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-primary-a bg-[#faf5ff] px-3 py-1 rounded-full">
-              {routes[activeTab].name}
-            </span>
-          </div>
-          <RouteLoop route={routes[activeTab]} />
-        </div>
+          {/* Mini Route */}
+          <div className="w-full relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
+            {/* Background pattern */}
+            <Image
+              src="/images/route-card-bg.jpg"
+              alt=""
+              fill
+              className="object-cover opacity-[0.66]"
+            />
 
-        {/* Desktop: side-by-side routes */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6 w-full">
-          {routes.map((route) => (
-            <div key={route.id} className="bg-surface-primary rounded-2xl p-8">
-              <div className="text-center mb-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-content-primary">
-                  {route.name}
-                </span>
+            {/* Mobile layout */}
+            <div className="md:hidden relative">
+              {/* Tab label */}
+              <div className="flex justify-center -mt-px">
+                <div className="relative">
+                  <Image src="/images/route-tab-label-dark.svg" alt="" width={178} height={40} />
+                  <span className="absolute inset-0 flex items-center justify-center text-sm font-medium text-white">
+                    ROUTE 3 MINI
+                  </span>
+                </div>
               </div>
-              <RouteLoop route={route} />
+              <div className="px-[18px] pt-6 pb-4">
+                <h3 className="text-2xl font-medium tracking-[-0.5px] leading-[1.3] mb-4">
+                  Want a faster AV experience? Hop on our{" "}
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
+                    20-minutes Mini
+                  </span>{" "}
+                  loop for a quick trial!
+                </h3>
+                <div className="bg-[#faf5ff] rounded-xl px-3 py-4 mb-4">
+                  <div className="flex flex-col gap-2 text-sm">
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="text-content-secondary">Monday to Friday</span>
+                      <span className="text-content-primary font-medium">9:30AM to 5:30PM</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="text-content-secondary">Last ride departs at</span>
+                      <span className="text-content-primary font-medium">5:00 PM</span>
+                    </div>
+                  </div>
+                </div>
+                <Image
+                  src="/images/route-3-mini.png"
+                  alt="Route 3 Mini map"
+                  width={306}
+                  height={376}
+                  className="w-full h-auto"
+                />
+                <div className="mt-4">
+                  <LocationButton />
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Mini Route */}
-        <div className="w-full bg-surface-primary rounded-2xl overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            {/* Left: text */}
-            <div className="p-6 md:p-10 flex-1">
-              <h3 className="text-2xl md:text-[32px] font-medium tracking-tight leading-[1.3] mb-4">
-                Want a faster AV experience? Hop on our{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
-                  20-minutes Mini
-                </span>{" "}
-                loop for a quick trial!
-              </h3>
-              <div className="flex flex-col md:flex-row md:gap-8 gap-1 text-sm text-content-secondary mt-4">
-                <p>
-                  Monday to Friday{" "}
-                  <span className="font-semibold text-content-primary">9:30AM to 5:30PM</span>
-                </p>
-                <p>
-                  Last ride departs at{" "}
-                  <span className="font-semibold text-content-primary">5:00 PM</span>
-                </p>
+            {/* Desktop layout */}
+            <div className="hidden md:block relative">
+              {/* Tab label - positioned top right */}
+              <div className="absolute top-0 right-[90px] z-10">
+                <div className="relative">
+                  <Image src="/images/route-tab-label-dark.svg" alt="" width={327} height={52} />
+                  <span className="absolute inset-0 flex items-center justify-center text-xl font-medium text-white">
+                    ROUTE 3 MINI
+                  </span>
+                </div>
               </div>
-              <button type="button" className="flex items-center gap-2 text-sm font-medium text-content-secondary mt-6">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M8 4V8L11 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                View pick-up and drop-off locations
-              </button>
-            </div>
-            {/* Right: mini route visualization */}
-            <div className="p-6 md:p-10 flex items-center justify-center">
-              <div className="text-center mb-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white bg-primary-a px-3 py-1 rounded-full">
-                  {miniRoute.name}
-                </span>
-              </div>
-              <div className="relative w-48 h-32 mx-auto mt-4">
-                <div className="absolute inset-0 border-[3px] border-[#d4d4d4] rounded-full" />
-                <div className="absolute -top-1.5 left-1/4 w-3 h-3 rounded-full bg-primary-b border-2 border-white shadow" />
-                <div className="absolute -top-1.5 right-1/4 w-3 h-3 rounded-full bg-primary-a border-2 border-white shadow" />
-                <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary-b border-2 border-white shadow" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="text-lg font-semibold text-content-primary">{miniRoute.duration}</p>
-                    <p className="text-xs text-content-secondary">Ride</p>
+
+              <div className="flex items-start justify-center gap-[174px] px-[53px] py-[54px]">
+                {/* Left: text content */}
+                <div className="flex-1 flex flex-col gap-14 items-start">
+                  <div className="flex flex-col gap-[52px] items-start">
+                    <h3 className="text-[32px] font-medium tracking-[-0.5px] leading-[1.3] max-w-[409px]">
+                      Want a faster AV experience? Hop on our{" "}
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
+                        20-minutes Mini
+                      </span>{" "}
+                      loop for a quick trial!
+                    </h3>
+                    <div className="bg-surface-primary rounded-xl px-7 py-[18px]">
+                      <div className="flex items-center gap-[77px] text-base">
+                        <div className="flex flex-col items-center gap-1.5 w-[166px]">
+                          <span className="text-content-secondary">Monday to Friday</span>
+                          <span className="text-lg text-content-primary text-right w-full">9:30AM to 5:30PM</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1.5 w-[166px]">
+                          <span className="text-content-secondary">Last ride departs at</span>
+                          <span className="text-lg text-content-primary text-right">5:00 PM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <LocationButton />
+                </div>
+
+                {/* Right: route image + duration */}
+                <div className="relative shrink-0">
+                  <Image
+                    src="/images/route-3-mini.png"
+                    alt="Route 3 Mini map"
+                    width={476}
+                    height={370}
+                    className="w-[476px] h-auto"
+                  />
+                  {/* Duration indicator */}
+                  <div className="absolute top-[210px] right-[50px] flex items-center gap-1.5">
+                    <div className="w-[26px] h-[26px] rounded-full border border-stroke-primary bg-white flex items-center justify-center">
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="7" stroke="#0f0f0f" strokeWidth="1.5" />
+                        <path d="M8 4V8L11 10" stroke="#0f0f0f" strokeWidth="1.5" strokeLinecap="round" />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col leading-[1.3]">
+                      <span className="text-sm font-semibold text-content-primary">20 mins</span>
+                      <span className="text-xs text-content-primary">Ride</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 mt-6">
-                {miniRoute.stops.map((stop) => (
-                  <div key={stop.name} className="flex items-start gap-2 text-sm">
-                    <div className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${stop.type === "pickup" ? "bg-primary-a" : "bg-primary-b"}`} />
-                    <div>
-                      <p className="font-medium text-content-primary">{stop.name}</p>
-                      <p className="text-xs text-content-secondary">{stop.detail}</p>
-                      {stop.type === "pickup" && (
-                        <span className="text-[10px] font-semibold uppercase text-primary-a">Pick-up / Drop-off</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
-        </div>
 
-        {/* Disclaimer */}
-        <p className="text-xs text-content-secondary text-center leading-relaxed">
-          During this free trial, all rides form a loop, starting and ending at
-          the same point. You can board and alight only at the pickup points
-          located at Matilda Court and Punggol Coast Mall.
-        </p>
+          {/* Disclaimer */}
+          <div className="flex items-start justify-center gap-1.5">
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" className="shrink-0 mt-0.5">
+              <path d="M10.333 2.333a8.333 8.333 0 100 16.667 8.333 8.333 0 000-16.667zm0 4.167v3.333m0 3.334h.008" stroke="#4e4e4e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <p className="text-base text-content-secondary text-center leading-[1.3] max-w-[1003px]">
+              During this free trial, all rides form a loop, starting and ending at
+              the same point. You can board and alight only at the pickup points
+              located at Matilda Court and Punggol Coast Mall.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

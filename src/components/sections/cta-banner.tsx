@@ -4,19 +4,25 @@ import { ArrowIcon } from "@/components/ui/arrow-icon";
 
 export function CtaBannerSection() {
   return (
-    <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+    <section className="relative h-[376px] md:h-[820px] overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/hero-bg.webp"
+        src="/images/cta-bg.jpg"
         alt="Ai.R autonomous shuttle fleet"
         fill
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-black/50" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(178deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.38) 100%)",
+        }}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 gap-8">
-        <h2 className="text-[32px] md:text-[40px] font-medium text-white tracking-tight leading-[1.3] max-w-md">
+      {/* Content - positioned at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center px-6 pb-[46px] md:pb-[96px] gap-6">
+        <h2 className="text-[32px] md:text-[48px] font-medium text-white tracking-[-0.48px] leading-[1.4] text-center max-w-[581px]">
           Be first in line to experience the future of transport
         </h2>
         <Button variant="primary" icon={<ArrowIcon />}>
