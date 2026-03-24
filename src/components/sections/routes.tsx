@@ -81,16 +81,14 @@ export function RoutesSection() {
         <div className="w-full flex flex-col items-center gap-14">
           {/* Mobile: tabs */}
           <div className="w-full md:hidden">
-            <div className="flex rounded-full bg-white overflow-hidden p-1">
+            <div className="flex rounded-xl bg-[#C6C6C6] overflow-hidden p-1">
               {["Route 1", "Route 2"].map((name, i) => (
                 <button
                   key={name}
                   type="button"
                   onClick={() => setActiveTab(i)}
-                  className={`flex-1 py-3 text-base font-medium rounded-full transition-colors ${
-                    activeTab === i
-                      ? "bg-content-primary text-white"
-                      : "text-content-primary"
+                  className={`flex-1 py-3 text-base font-medium rounded-xl transition-colors ${
+                    activeTab === i ? "bg-white text-black" : "text-[#9A9696]"
                   }`}
                 >
                   {name}

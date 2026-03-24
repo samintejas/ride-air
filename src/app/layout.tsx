@@ -9,8 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ride Ai.R",
-  description: "Autonomous ride-hailing, powered by Grab",
+  title: "Rideair AI",
+  description: "Powered by Grab",
+  verification: {
+    google: "PszsfwxuJTxXBPdO0TV-5m43ooPEyt2ZJ5LbglNMQho",
+  },
 };
 
 export default function RootLayout({
