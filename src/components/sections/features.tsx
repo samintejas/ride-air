@@ -24,21 +24,19 @@ const features = [
 export function FeaturesSection() {
   return (
     <section id="features" className="bg-white">
-      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-center md:justify-center gap-8 md:gap-[145px] px-4 py-12 md:px-[94px] md:py-[131px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 lg:gap-[145px] px-4 py-12 lg:px-[94px] lg:py-[131px]">
         {/* Feature list */}
-        <div className="flex flex-col gap-10 md:gap-[64px] md:w-[497px] md:shrink-0">
+        <div className="flex flex-col gap-10 lg:gap-[64px] lg:w-[497px] lg:shrink-0">
           {features.map((feature) => (
-            <div key={feature.title} className="flex flex-col md:flex-row gap-5 md:gap-8 items-start">
+            <div
+              key={feature.title}
+              className="flex flex-col lg:flex-row gap-5 lg:gap-8 items-start"
+            >
               <div className="w-14 h-14 rounded-[28px] bg-[#faf5ff] flex items-center justify-center shrink-0">
-                <Image
-                  src={feature.icon}
-                  alt=""
-                  width={28}
-                  height={28}
-                />
+                <Image src={feature.icon} alt="" width={28} height={28} />
               </div>
               <div className="flex flex-col gap-4">
-                <h3 className="text-xl md:text-2xl font-medium text-content-primary leading-[1.4] tracking-[-1px]">
+                <h3 className="text-xl lg:text-2xl font-medium text-content-primary leading-[1.4] tracking-[-1px]">
                   {feature.title}
                 </h3>
                 <p className="text-base text-content-tertiary leading-[1.3]">
@@ -50,7 +48,7 @@ export function FeaturesSection() {
         </div>
 
         {/* Shuttle image */}
-        <div className="relative rounded-[14px] overflow-hidden h-48 md:h-[613px] md:flex-1 md:min-w-0">
+        <div className="relative rounded-[14px] overflow-hidden h-48 lg:h-[613px] lg:flex-1 lg:min-w-0">
           <Image
             src="/images/shuttle-street-new.png"
             alt="Ai.R autonomous shuttle on the street"

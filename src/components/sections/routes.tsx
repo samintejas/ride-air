@@ -37,12 +37,12 @@ export function RoutesSection() {
 
   return (
     <section id="routes" className="bg-[#efe8fa]">
-      <div className="max-w-[1440px] mx-auto px-4 py-12 md:px-[94px] md:py-[96px] flex flex-col items-center gap-12 md:gap-[74px]">
+      <div className="max-w-[1440px] mx-auto px-4 py-12 xl:px-[94px] xl:py-[96px] flex flex-col items-center gap-12 xl:gap-[74px]">
         {/* Header */}
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center">
-              <h2 className="text-[32px] md:text-[48px] font-medium tracking-[-0.48px] leading-[1.4] max-w-[712px]">
+              <h2 className="text-[32px] xl:text-[48px] font-medium tracking-[-0.48px] leading-[1.4] max-w-[712px]">
                 We&apos;re currently{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
                   operating 2 out of 3 looped
@@ -52,9 +52,9 @@ export function RoutesSection() {
             </div>
 
             {/* Schedule info */}
-            <div className="bg-[#faf5ff] rounded-xl px-4 py-4 md:px-[42px] md:py-[18px] w-full md:w-[712px]">
-              <div className="flex flex-col md:flex-row md:items-center md:gap-8 gap-2 text-center md:text-right text-base md:text-lg">
-                <div className="flex items-center justify-center gap-2 md:pr-8 md:border-r md:border-stroke-primary">
+            <div className="bg-[#faf5ff] rounded-xl px-4 py-4 xl:px-[42px] xl:py-[18px] w-full xl:w-[712px]">
+              <div className="flex flex-col xl:flex-row xl:items-center xl:gap-8 gap-2 text-center xl:text-right text-base xl:text-lg">
+                <div className="flex items-center justify-center gap-2 xl:pr-8 xl:border-r xl:border-stroke-primary">
                   <span className="text-content-secondary">
                     Monday to Friday
                   </span>
@@ -80,7 +80,7 @@ export function RoutesSection() {
         {/* Route cards */}
         <div className="w-full flex flex-col items-center gap-14">
           {/* Mobile: tabs */}
-          <div className="w-full md:hidden">
+          <div className="w-full xl:hidden">
             <div className="flex rounded-xl bg-[#C6C6C6] overflow-hidden p-1">
               {["Route 1", "Route 2"].map((name, i) => (
                 <button
@@ -98,7 +98,7 @@ export function RoutesSection() {
           </div>
 
           {/* Mobile: single route */}
-          <div className="w-full md:hidden">
+          <div className="w-full xl:hidden">
             <div className="relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
               {/* Background pattern */}
               <Image
@@ -143,7 +143,7 @@ export function RoutesSection() {
           </div>
 
           {/* Desktop: side-by-side routes */}
-          <div className="hidden md:flex md:gap-14 w-full">
+          <div className="hidden xl:flex xl:gap-14 w-full">
             {[
               {
                 name: "ROUTE 1",
@@ -194,7 +194,7 @@ export function RoutesSection() {
                   />
                 </div>
                 {/* Location button */}
-                <div className="absolute bottom-[27px] left-1/2 -translate-x-1/2">
+                <div className="absolute bottom-[27px] left-1/2 -translate-x-1/2 w-max">
                   {locationUrl && <LocationButton src={locationUrl} />}
                 </div>
               </div>
@@ -212,7 +212,7 @@ export function RoutesSection() {
             />
 
             {/* Mobile layout */}
-            <div className="md:hidden relative">
+            <div className="xl:hidden relative">
               {/* Tab label */}
               <div className="flex justify-center -mt-px">
                 <div className="relative">
@@ -262,14 +262,14 @@ export function RoutesSection() {
                   height={376}
                   className="w-full h-auto"
                 />
-                <div className="mt-4">
+                <div className="mt-4 mx-auto w-fit">
                   {location2 && <LocationButton src={location2} />}
                 </div>
               </div>
             </div>
 
             {/* Desktop layout */}
-            <div className="hidden md:block relative">
+            <div className="hidden xl:block relative">
               {/* Tab label - positioned top right */}
               <div className="absolute top-0 right-[90px] z-10">
                 <div className="relative">
@@ -317,6 +317,7 @@ export function RoutesSection() {
                       </div>
                     </div>
                   </div>
+
                   {locationUrl && <LocationButton src={locationUrl} />}
                 </div>
 

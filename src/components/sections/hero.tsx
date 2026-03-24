@@ -58,10 +58,10 @@ export function HeroSection() {
       />
 
       {/* Navigation bar */}
-      <nav className="absolute top-7 md:top-10 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-2rem)] md:w-[720px]">
-        <div className="flex items-center justify-between backdrop-blur-[29px] bg-[rgba(15,15,15,0.34)] rounded-full h-[68px] pl-3.5 md:pl-5 pr-2 py-2">
+      <nav className="absolute top-7 lg:top-10 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-2rem)] lg:w-[720px]">
+        <div className="flex items-center justify-between backdrop-blur-[29px] bg-[rgba(15,15,15,0.34)] rounded-full h-[68px] pl-3.5 lg:pl-5 pr-2 py-2">
           {/* Mobile: hamburger + logo */}
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-3 lg:hidden">
             <button
               type="button"
               className="text-white p-1"
@@ -102,11 +102,11 @@ export function HeroSection() {
           </div>
 
           {/* Desktop: logo + nav links */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Logo className="h-8 w-[88px]" color="white" />
           </div>
 
-          <div className="hidden md:flex items-center gap-3 text-base font-medium text-white">
+          <div className="hidden lg:flex items-center gap-3 text-base font-medium text-white">
             {desktopNavLinks.map((link) => (
               <Link
                 key={link.href}
@@ -129,7 +129,7 @@ export function HeroSection() {
           <Link href={bookingLink}>
             <Button
               variant="secondary"
-              className="h-12 text-sm md:text-base whitespace-nowrap px-[18px]"
+              className="h-12 text-sm lg:text-base whitespace-nowrap px-[18px]"
             >
               Reserve your slot
             </Button>
@@ -138,7 +138,7 @@ export function HeroSection() {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-2 bg-black/90 backdrop-blur-xl rounded-2xl p-6 flex flex-col gap-4">
+          <div className="lg:hidden mt-2 bg-black/90 backdrop-blur-xl rounded-2xl p-6 flex flex-col gap-4">
             {desktopNavLinks.map((link) => (
               <Link
                 key={link.href}
@@ -154,21 +154,21 @@ export function HeroSection() {
       </nav>
 
       {/* Large Ai.R watermark */}
-      {/* <div className="absolute top-16 md:top-24 left-0 md:left-[30%] md:-translate-x-1/2 z-10 opacity-20 pointer-events-none">
-        <Logo className="h-[280px] md:h-[380px]" color="white" />
+      {/* <div className="absolute top-16 lg:top-24 left-0 lg:left-[30%] lg:-translate-x-1/2 z-10 opacity-20 pointer-events-none">
+        <Logo className="h-[280px] lg:h-[380px]" color="white" />
       </div> */}
 
       {/* Content overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0 md:px-[94px] md:pb-[61px] md:pt-12">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-8">
+      <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0 lg:px-[94px] lg:pb-[61px] lg:pt-12">
+        <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-8">
           {/* Left: headline + CTA */}
-          <div className="flex flex-col gap-5 md:gap-[34px] md:max-w-[769px]">
+          <div className="flex flex-col gap-5 lg:gap-[34px] lg:max-w-[769px]">
             {/* Headline */}
             <div className="flex flex-col gap-2">
-              <h1 className="text-[32px] md:text-[52px] font-medium md:font-semibold text-white tracking-[-0.5px] md:tracking-[1.04px] leading-[1.3] md:leading-[1.2] md:max-w-[566px]">
+              <h1 className="text-[32px] lg:text-[52px] font-medium lg:font-semibold text-white tracking-[-0.5px] lg:tracking-[1.04px] leading-[1.3] lg:leading-[1.2] lg:max-w-[566px]">
                 A new way to ride, Powered by Ai.R
               </h1>
-              <p className="text-sm md:text-xl text-[#afafaf] leading-[1.3] md:max-w-[769px]">
+              <p className="text-sm lg:text-xl text-[#afafaf] leading-[1.3] lg:max-w-[769px]">
                 Ai.R, powered by Grab, is an autonomous service connecting
                 neighbourhoods, transport nodes and key destinations. Its
                 state-of-the-art fleet uses advanced sensors and intelligent
@@ -177,11 +177,11 @@ export function HeroSection() {
             </div>
 
             {/* CTA bar */}
-            <div className="flex items-center bg-[rgba(76,73,73,0.27)] rounded-full pl-6 pr-2 py-2 gap-3 md:gap-6 md:w-fit">
-              <p className="text-sm md:text-base text-white leading-[1.3] flex-1 md:flex-none md:whitespace-nowrap">
+            <div className="flex items-center bg-[rgba(76,73,73,0.27)] rounded-full pl-6 pr-2 py-2 gap-3 lg:gap-6 lg:w-fit">
+              <p className="text-sm lg:text-base text-white leading-[1.3] flex-1 lg:flex-none lg:whitespace-nowrap">
                 Be first in line to experience the future of transport
               </p>
-              <Link href={desktopNavLinks[2].href}>
+              <Link href="#steps">
                 <Button
                   variant="primary"
                   icon={<ArrowIcon />}
@@ -193,7 +193,7 @@ export function HeroSection() {
             </div>
 
             {/* Mobile: video bar */}
-            <div className="flex md:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]">
+            <div className="flex lg:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]">
               <Link href="#" className="flex items-center gap-4">
                 <div className="w-[103px] h-[58px] rounded-md bg-white/10 overflow-hidden">
                   <Image
@@ -230,7 +230,7 @@ export function HeroSection() {
           </div>
 
           {/* Desktop: video card */}
-          <div className="hidden md:flex shrink-0 w-[315px] h-[177px] rounded-[11px] overflow-hidden relative bg-black/40">
+          <div className="hidden lg:flex shrink-0 w-[315px] h-[177px] rounded-[11px] overflow-hidden relative bg-black/40">
             {/* <Image
               src="/images/hero-bg-new.jpg"
               alt="Grab Ai.R Technology video"

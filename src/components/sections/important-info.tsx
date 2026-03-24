@@ -24,15 +24,15 @@ const infoCards = [
 export function ImportantInfoSection() {
   return (
     <section className="bg-[#f8fafc]">
-      <div className="max-w-[1440px] mx-auto px-4 py-12 md:px-[94px] md:py-[96px] flex flex-col gap-12 md:gap-[65px]">
-        <h2 className="text-[32px] md:text-[48px] font-medium text-black tracking-[-0.48px] leading-[1.4]">
+      <div className="max-w-[1440px] mx-auto px-4 py-12 lg:px-[94px] lg:py-[96px] flex flex-col gap-12 lg:gap-[65px]">
+        <h2 className="text-[32px] lg:text-[48px] font-medium text-black tracking-[-0.48px] leading-[1.4]">
           Important information
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-8">
           {infoCards.map((card) => (
-            <div key={card.title} className="flex flex-col gap-5 md:gap-7">
-              <div className="relative h-[193px] md:h-[230px] rounded-[14px] overflow-hidden bg-[#d9d9d9]">
+            <div key={card.title} className="flex flex-col gap-5 lg:gap-7">
+              <div className="relative h-[193px] lg:h-[230px] rounded-[14px] overflow-hidden bg-[#d9d9d9]">
                 <Image
                   src={card.image}
                   alt={card.title}

@@ -6,7 +6,7 @@ import { bookingLink } from "./hero";
 
 export function CtaBannerSection() {
   return (
-    <section className="relative h-[376px] md:h-[820px] overflow-hidden">
+    <section className="relative h-[376px] lg:h-[820px] overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/cta-bg.jpg"
@@ -23,8 +23,8 @@ export function CtaBannerSection() {
       />
 
       {/* Content - positioned at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center px-6 pb-[46px] md:pb-[96px] gap-6">
-        <h2 className="text-[32px] md:text-[48px] font-medium text-white tracking-[-0.48px] leading-[1.4] text-center max-w-[581px]">
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center px-6 pb-[46px] lg:pb-[96px] gap-6">
+        <h2 className="text-[32px] lg:text-[48px] font-medium text-white tracking-[-0.48px] leading-[1.4] text-center max-w-[581px]">
           Be first in line to experience the future of transport
         </h2>
 
