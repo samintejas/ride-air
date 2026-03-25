@@ -25,9 +25,9 @@ function LocationButton({ src }: LocationButtonProps) {
   );
 }
 
-export const location1 = "https://maps.app.goo.gl/YCvvsAJpqyHHDEP86Route";
+export const location1 = "https://maps.app.goo.gl/YCvvsAJpqyHHDEP86";
 // "https://www.google.com/maps/place/Sheng+Siong+Supermarket/@1.4017201,103.8924234,21z/data=!3m1!5s0x31da15e0116c3cc5:0x23026abb0a7b58e0!4m6!3m5!1s0x31da1522f42940e3:0xe965477e810ce928!8m2!3d1.4019589!4d103.8921939!16s%2Fg%2F11h18ccmw2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
-export const location2 = "https://maps.app.goo.gl/yAkX2ZWZPbpBQFsRACan";
+export const location2 = "https://maps.app.goo.gl/yAkX2ZWZPbpBQFsRA";
 //"https://www.google.com/maps/place/Tower+82+(Punggol+Digital+District)/@1.4151488,103.9087826,17z/data=!3m1!4b1!4m6!3m5!1s0x31da15007233a7c5:0x58842fac3380e6cb!8m2!3d1.4151488!4d103.9087826!16s%2Fg%2F11y6st56mv?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
 
 export function RoutesSection() {
@@ -157,7 +157,7 @@ export function RoutesSection() {
                 imgW: 506,
                 imgH: 444,
               },
-            ].map((route) => (
+            ].map((route, idx) => (
               <div
                 key={route.name}
                 className="flex-1 relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white h-[652px]"
@@ -195,7 +195,9 @@ export function RoutesSection() {
                 </div>
                 {/* Location button */}
                 <div className="absolute bottom-[27px] left-1/2 -translate-x-1/2 w-max">
-                  {locationUrl && <LocationButton src={locationUrl} />}
+                  {/* {locationUrl && <LocationButton src={locationUrl} />} */}
+
+                  <LocationButton src={idx === 0 ? location1 : location2} />
                 </div>
               </div>
             ))}
@@ -318,7 +320,7 @@ export function RoutesSection() {
                     </div>
                   </div>
 
-                  {locationUrl && <LocationButton src={locationUrl} />}
+                  <LocationButton src={location2} />
                 </div>
 
                 {/* Right: route image + duration */}
