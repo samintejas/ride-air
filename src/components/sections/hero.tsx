@@ -1,6 +1,5 @@
 "use client";
 
-import { Logo } from "@/components/logo";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -8,17 +7,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { YoutubeModal } from "./youtube-modal";
 
-const desktopNavLinks = [
-  { label: "Why us", href: "#features" },
-  { label: "Our routes", href: "#routes" },
-  { label: "How to reserve", href: "#steps" },
-] as const;
-
-export const bookingLink = "https://grb.to/av-form"; //"https://form.gov.sg/69c13c7d7c56b5231f73a94d";
+export const bookingLink = "https://grb.to/av-form";
 
 export function HeroSection() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const [isOpenYoutubeModal, setIsOpenYoutubeModal] = useState(false);
 
   const openYoutubeModal = () => {
@@ -47,7 +38,6 @@ export function HeroSection() {
         className="object-cover object-center"
         priority
       />
-
       {/* Gradient overlay at bottom */}
       <div
         className="absolute inset-0"
@@ -56,109 +46,7 @@ export function HeroSection() {
             "linear-gradient(173deg, rgba(0,0,0,0) 12%, rgba(0,0,0,0.8) 83%)",
         }}
       />
-
-      {/* Navigation bar */}
-      <nav className="absolute top-7 lg:top-10 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-2rem)] lg:w-[720px]">
-        <div className="flex items-center justify-between backdrop-blur-[29px] bg-[rgba(15,15,15,0.34)] rounded-full h-[68px] pl-3.5 lg:pl-5 pr-2 py-2">
-          {/* Mobile: hamburger + logo */}
-          <div className="flex items-center gap-3 lg:hidden">
-            <button
-              type="button"
-              className="text-white p-1"
-              aria-label="Menu"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <line
-                  x1="4"
-                  y1="7"
-                  x2="20"
-                  y2="7"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1="4"
-                  y1="12"
-                  x2="20"
-                  y2="12"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1="4"
-                  y1="17"
-                  x2="20"
-                  y2="17"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-            <Logo className="h-8" color="white" />
-          </div>
-
-          {/* Desktop: logo + nav links */}
-          <div className="hidden lg:flex items-center">
-            <Logo className="h-8 w-[88px]" color="white" />
-          </div>
-
-          <div className="hidden lg:flex items-center gap-3 text-base font-medium text-white">
-            {desktopNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="opacity-80 hover:opacity-100 transition-opacity text-center"
-                style={{
-                  width:
-                    link.label === "Why us"
-                      ? 76
-                      : link.label === "Our routes"
-                        ? 132
-                        : 100,
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link href={bookingLink}>
-            <Button
-              variant="secondary"
-              className="h-12 text-sm lg:text-base whitespace-nowrap px-[18px]"
-            >
-              Reserve your slot
-            </Button>
-          </Link>
-        </div>
-
-        {/* Mobile menu dropdown */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-2 bg-black/90 backdrop-blur-xl rounded-2xl p-6 flex flex-col gap-4">
-            {desktopNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-lg font-medium text-white/80 hover:text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </nav>
-
-      {/* Large Ai.R watermark */}
-      {/* <div className="absolute top-16 lg:top-24 left-0 lg:left-[30%] lg:-translate-x-1/2 z-10 opacity-20 pointer-events-none">
-        <Logo className="h-[280px] lg:h-[380px]" color="white" />
-      </div> */}
-
-      {/* Content overlay at bottom */}
+      \{/* Content overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0 lg:px-[94px] lg:pb-[61px] lg:pt-12">
         <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-8">
           {/* Left: headline + CTA */}
@@ -199,14 +87,6 @@ export function HeroSection() {
             >
               <Link href="#" className="flex items-center gap-4">
                 <div className="w-[103px] h-[58px] rounded-md bg-white/10 overflow-hidden">
-                  {/* <Image
-                    src="/images/hero-bg-new.jpg"
-                    alt="Ai.R video thumbnail"
-                    width={103}
-                    height={58}
-                    className="object-cover w-full h-full opacity-70"
-                  /> */}
-
                   <video
                     src="/videos/hero-video.webm"
                     autoPlay
@@ -244,13 +124,7 @@ export function HeroSection() {
 
           {/* Desktop: video card */}
           <div className="hidden lg:flex shrink-0 w-[315px] h-[177px] rounded-[11px] overflow-hidden relative bg-black/40">
-            {/* <Image
-              src="/images/hero-bg-new.jpg"
-              alt="Grab Ai.R Technology video"
-              fill
-              className="object-cover opacity-60"
-            /> */}
-
+            {/* Video */}
             <video
               src="/videos/hero-video.webm"
               autoPlay
@@ -258,12 +132,24 @@ export function HeroSection() {
               muted
               playsInline
               preload="auto"
-              className="h-full w-full cursor-pointer"
+              className="h-full w-full object-cover"
             />
 
+            {/* ✅ Gradient overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `
+        linear-gradient(71.21deg, rgba(0,0,0,0) 55.8%, rgba(0,0,0,0.76) 100.91%),
+        linear-gradient(208.23deg, rgba(0,0,0,0) 42.57%, rgba(0,0,0,0.83) 74.87%)
+      `,
+              }}
+            />
+
+            {/* Content */}
             <div
               onClick={openYoutubeModal}
-              className="absolute inset-0 flex items-end justify-between p-[13px] cursor-pointer"
+              className="absolute inset-0 flex items-end justify-between p-[13px] cursor-pointer z-10"
             >
               <div className="flex flex-col gap-[3px] text-white">
                 <p className="text-xs leading-[1.3] tracking-wide uppercase">
@@ -273,6 +159,7 @@ export function HeroSection() {
                   Grab Ai.R Technology
                 </p>
               </div>
+
               <div className="self-start">
                 <button
                   type="button"

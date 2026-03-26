@@ -1,5 +1,6 @@
 "use client";
 
+import { Clock, DisclaimerIcon } from "@/app/assets/icons";
 import { ArrowIcon } from "@/components/ui/arrow-icon";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -26,9 +27,7 @@ function LocationButton({ src }: LocationButtonProps) {
 }
 
 export const location1 = "https://maps.app.goo.gl/YCvvsAJpqyHHDEP86";
-// "https://www.google.com/maps/place/Sheng+Siong+Supermarket/@1.4017201,103.8924234,21z/data=!3m1!5s0x31da15e0116c3cc5:0x23026abb0a7b58e0!4m6!3m5!1s0x31da1522f42940e3:0xe965477e810ce928!8m2!3d1.4019589!4d103.8921939!16s%2Fg%2F11h18ccmw2?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
 export const location2 = "https://maps.app.goo.gl/yAkX2ZWZPbpBQFsRA";
-//"https://www.google.com/maps/place/Tower+82+(Punggol+Digital+District)/@1.4151488,103.9087826,17z/data=!3m1!4b1!4m6!3m5!1s0x31da15007233a7c5:0x58842fac3380e6cb!8m2!3d1.4151488!4d103.9087826!16s%2Fg%2F11y6st56mv?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D";
 
 export function RoutesSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -42,12 +41,15 @@ export function RoutesSection() {
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col items-center gap-6">
             <div className="text-center">
-              <h2 className="text-[32px] xl:text-[48px] font-medium tracking-[-0.48px] leading-[1.4] max-w-[712px]">
+              <h2 className="text-[32px] xl:text-[48px] font-medium tracking-[-0.48px] leading-[1.4]">
                 We&apos;re currently{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
-                  operating 2 out of 3 looped
+                  operating 2 out of
+                  <span>
+                    <br /> 3 looped
+                    <span className="text-black"> shuttle service routes.</span>
+                  </span>
                 </span>{" "}
-                shuttle service routes.
               </h2>
             </div>
 
@@ -195,8 +197,6 @@ export function RoutesSection() {
                 </div>
                 {/* Location button */}
                 <div className="absolute bottom-[27px] left-1/2 -translate-x-1/2 w-max">
-                  {/* {locationUrl && <LocationButton src={locationUrl} />} */}
-
                   <LocationButton src={idx === 0 ? location1 : location2} />
                 </div>
               </div>
@@ -205,14 +205,6 @@ export function RoutesSection() {
 
           {/* Mini Route */}
           <div className="w-full relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
-            {/* Background pattern */}
-            <Image
-              src="/images/route-card-bg.jpg"
-              alt=""
-              fill
-              className="object-cover opacity-[0.66]"
-            />
-
             {/* Mobile layout */}
             <div className="xl:hidden relative">
               {/* Tab label */}
@@ -269,11 +261,21 @@ export function RoutesSection() {
                 </div>
               </div>
             </div>
-
             {/* Desktop layout */}
-            <div className="hidden xl:block relative">
-              {/* Tab label - positioned top right */}
-              <div className="absolute top-0 right-[90px] z-10">
+            <div className="hidden xl:block relative w-full overflow-hidden">
+              {/* Background RIGHT HALF */}
+              <div className="absolute right-0 top-0 h-full w-1/2 z-0 pointer-events-none">
+                <Image
+                  src="/images/route-card-bg.jpg"
+                  alt=""
+                  fill
+                  sizes="50vw"
+                  className="object-cover opacity-[0.66]"
+                />
+              </div>
+
+              {/* Tab label */}
+              <div className="absolute top-0 right-[135px] z-20">
                 <div className="relative">
                   <Image
                     src="/images/route-tab-label-dark.svg"
@@ -287,80 +289,71 @@ export function RoutesSection() {
                 </div>
               </div>
 
-              <div className="flex items-start justify-center gap-[174px] px-[53px] py-[54px]">
-                {/* Left: text content */}
+              {/* CONTENT */}
+              <div className="relative z-10 flex items-start justify-center gap-[174px] px-[53px] py-[54px]">
+                {/* Left */}
                 <div className="flex-1 flex flex-col gap-14 items-start">
-                  <div className="flex flex-col gap-[52px] items-start">
-                    <h3 className="text-[32px] font-medium tracking-[-0.5px] leading-[1.3] max-w-[409px]">
-                      Want a faster AV experience? Hop on our{" "}
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
-                        20-minutes Mini
-                      </span>{" "}
-                      loop for a quick trial!
-                    </h3>
-                    <div className="bg-surface-primary rounded-xl px-7 py-[18px]">
-                      <div className="flex items-center gap-[77px] text-base">
-                        <div className="flex flex-col items-center gap-1.5 w-[166px]">
-                          <span className="text-content-secondary">
-                            Monday to Friday
-                          </span>
-                          <span className="text-lg text-content-primary text-right w-full">
-                            9:30AM to 5:30PM
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center gap-1.5 w-[166px]">
-                          <span className="text-content-secondary">
-                            Last ride departs at
-                          </span>
-                          <span className="text-lg text-content-primary text-right">
-                            5:00 PM
-                          </span>
+                  <div className="flex-1 flex flex-col gap-14 items-start ">
+                    <div className="flex flex-col gap-[52px] items-start">
+                      <h3 className="text-[32px] font-medium tracking-[-0.5px] leading-[1.3] max-w-[409px]">
+                        Want a faster AV experience? Hop on our{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
+                          20-minutes Mini
+                        </span>{" "}
+                        loop for a quick trial!
+                      </h3>
+                      <div className="bg-surface-primary rounded-xl px-7 py-[18px]">
+                        <div className="flex items-center gap-[77px] text-base">
+                          <div className="flex flex-col items-center gap-1.5 w-[166px]">
+                            <span className="text-content-secondary">
+                              Monday to Friday
+                            </span>
+                            <span className="text-lg text-content-primary text-right w-full">
+                              9:30AM to 5:30PM
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center gap-1.5 w-[166px]">
+                            <span className="text-content-secondary">
+                              Last ride departs at
+                            </span>
+                            <span className="text-lg text-content-primary text-right">
+                              5:00 PM
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <LocationButton src={location2} />
+                    <LocationButton src={location2} />
+                  </div>
                 </div>
 
-                {/* Right: route image + duration */}
+                {/* Right */}
                 <div className="relative shrink-0">
-                  <Image
-                    src="/images/route-3-mini.png"
-                    alt="Route 3 Mini map"
-                    width={476}
-                    height={370}
-                    className="w-[476px] h-auto"
-                  />
-                  {/* Duration indicator */}
-                  <div className="absolute top-[210px] right-[50px] flex items-center gap-1.5">
-                    <div className="w-[26px] h-[26px] rounded-full border border-stroke-primary bg-white flex items-center justify-center">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <circle
-                          cx="8"
-                          cy="8"
-                          r="7"
-                          stroke="#0f0f0f"
-                          strokeWidth="1.5"
-                        />
-                        <path
-                          d="M8 4V8L11 10"
-                          stroke="#0f0f0f"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex flex-col leading-[1.3]">
-                      <span className="text-sm font-semibold text-content-primary">
-                        20 mins
-                      </span>
-                      <span className="text-xs text-content-primary">Ride</span>
+                  <div className="relative shrink-0">
+                    <Image
+                      src="/images/route-3-mini.png"
+                      alt="Route 3 Mini map"
+                      width={476}
+                      height={370}
+                      className="w-[476px] h-auto "
+                    />
+                    {/* Duration indicator */}
+                    <div className="absolute top-[199px] right-[205px] flex items-center gap-1.5">
+                      <Image
+                        src={Clock}
+                        alt="clock icon"
+                        height={26}
+                        width={26}
+                      />
+                      <div className="flex flex-col leading-[1.3]">
+                        <span className="text-sm font-semibold text-content-primary">
+                          20 mins
+                        </span>
+                        <span className="text-xs text-content-primary">
+                          Ride
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -369,22 +362,13 @@ export function RoutesSection() {
           </div>
 
           {/* Disclaimer */}
-          <div className="flex items-start justify-center gap-1.5">
-            <svg
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-              className="shrink-0 mt-0.5"
-            >
-              <path
-                d="M10.333 2.333a8.333 8.333 0 100 16.667 8.333 8.333 0 000-16.667zm0 4.167v3.333m0 3.334h.008"
-                stroke="#4e4e4e"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <div className="flex  items-start justify-center gap-1">
+            <Image
+              src={DisclaimerIcon}
+              alt="disclaimer-icon"
+              height={20}
+              width={20}
+            />
             <p className="text-base text-content-secondary text-center leading-[1.3] max-w-[1003px]">
               During this free trial, all rides form a loop, starting and ending
               at the same point. You can board and alight only at the pickup
