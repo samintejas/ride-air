@@ -8,7 +8,7 @@ const infoCards = [
       "We recommend reaching your pickup point 10 minutes before your scheduled slot. Please note that we may not be able to accommodate late arrivals, to ensure fairness and a smooth experience for all passengers.",
   },
   {
-    image: "/images/info-children-new.png",
+    image: "/images/info-children-new.jpeg",
     title: "Keep Children Safe",
     description:
       "All children under 1.35m in height are required by law to have the proper restraints to board the AV. Please bring your own child booster seat, should you require one. For safety & legal reasons, we cannot allow children to board without the proper restraint.",
