@@ -121,7 +121,7 @@ export function FloatingHeader() {
 
       {/* FULLSCREEN MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white flex flex-col overflow-hidden">
+        <div className="fixed inset-0 z-40 bg-white flex flex-col overflow-scroll pb-10">
           {/* BACKGROUND IMAGE (half screen, padded) */}
           <div className="absolute inset-0 z-0 pointer-events-none flex justify-center">
             <div className="w-full h-[300px] md:hidden px-4">
@@ -137,7 +137,7 @@ export function FloatingHeader() {
           </div>
 
           {/* MENU CONTENT */}
-          <div className="relative z-10 mt-[50%] md:mt-0 flex-1 flex flex-col mt-10 items-center justify-center gap-8">
+          <div className="relative z-10 mt-[45vh] md:mt-0 flex-1 flex flex-col mt-10 items-center justify-center gap-8">
             {desktopNavLinks.map((link) => (
               <Link
                 key={link.href}
