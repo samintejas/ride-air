@@ -38,7 +38,7 @@ export function RideStepsSection() {
         <div className="bg-surface-primary border border-[#e7e7e7] rounded-2xl overflow-hidden relative">
           <div className="flex flex-col lg:flex-row">
             {/* Left: text content */}
-            <div className="p-6 lg:pl-[46px] lg:pt-[59px] lg:pb-[59px] lg:pr-0 flex flex-col gap-6 lg:gap-[78px] lg:w-[616px] lg:shrink-0 relative z-10">
+            <div className="text-center md:text-start p-6 lg:pl-[46px] lg:pt-[59px] lg:pb-[59px] lg:pr-0 flex flex-col gap-6 lg:gap-[78px] lg:w-[616px] lg:shrink-0 relative z-10">
               <div className="flex flex-col gap-6 lg:gap-[42px]">
                 <h2 className="text-[32px] lg:text-[48px] font-medium tracking-[-0.48px] leading-[1.4]">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">

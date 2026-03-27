@@ -83,7 +83,7 @@ export function RoutesSection() {
         <div className="w-full flex flex-col items-center gap-14">
           {/* Mobile: tabs */}
           <div className="w-full xl:hidden">
-            <div className="flex rounded-xl bg-[#C6C6C6] overflow-hidden p-1">
+            <div className="flex rounded-xl bg-[#EEEEEE] border border-[#C6C6C6] overflow-hidden p-1">
               {["Route 1", "Route 3"].map((name, i) => (
                 <button
                   key={name}
@@ -101,7 +101,7 @@ export function RoutesSection() {
 
           {/* Mobile: single route */}
           <div className="w-full xl:hidden">
-            <div className="relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
+            <div className="relative border border-[#e4e4e4] rounded-[32px] overflow-hidden bg-white">
               {/* Background pattern */}
               <Image
                 src="/images/route-card-bg.jpg"
@@ -138,7 +138,7 @@ export function RoutesSection() {
                 />
               </div>
               {/* Location button */}
-              <div className="relative flex justify-center pb-8">
+              <div className="relative flex justify-center pb-8 px-3">
                 {locationUrl && <LocationButton src={locationUrl} />}
               </div>
             </div>
@@ -162,7 +162,7 @@ export function RoutesSection() {
             ].map((route, idx) => (
               <div
                 key={route.name}
-                className="flex-1 relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white h-[652px]"
+                className="flex-1 relative border border-[#e4e4e4] rounded-[32px] overflow-hidden bg-white h-[652px]"
               >
                 {/* Background pattern */}
                 <Image
@@ -204,7 +204,7 @@ export function RoutesSection() {
           </div>
 
           {/* Mini Route */}
-          <div className="w-full relative border border-[#e4e4e4] rounded-[46px] overflow-hidden bg-white">
+          <div className="w-full relative border border-[#e4e4e4] rounded-[32px] overflow-hidden bg-white">
             {/* Mobile layout */}
             <div className="xl:hidden relative">
               {/* Tab label */}
@@ -222,7 +222,7 @@ export function RoutesSection() {
                 </div>
               </div>
               <div className="px-[18px] pt-6 pb-4">
-                <h3 className="text-2xl font-medium tracking-[-0.5px] leading-[1.3] mb-4">
+                <h3 className="text-2xl text-center font-medium tracking-[-0.5px] leading-[1.3] mb-4">
                   Want a faster AV experience? Hop on our{" "}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-b to-[#43308b]">
                     20-minutes Mini

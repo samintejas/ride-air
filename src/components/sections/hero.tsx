@@ -95,7 +95,7 @@ export function HeroSection() {
               className="flex lg:hidden items-center justify-between border-t border-white/40 pt-[18px] pb-[18px]"
             >
               <Link href="#" className="flex items-center gap-4">
-                <div className="w-[103px] h-[58px] rounded-md bg-white/10 overflow-hidden">
+                <div className="w-[103px] h-[58px] rounded-[6px] bg-white/10 overflow-hidden">
                   <video
                     src="/videos/hero-video.webm"
                     autoPlay
