@@ -31,11 +31,20 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-black">
       {/* Background image */}
+      {/* desktop bg */}
       <Image
         src="/images/hero-bg-new.jpg"
         alt="Ai.R autonomous shuttle on Singapore streets"
         fill
-        className="object-cover object-center"
+        className="object-cover object-center lg:block hidden"
+        priority
+      />
+      {/* mobile-bg */}
+      <Image
+        src="/images/hero-mobile.jpg"
+        alt="Ai.R autonomous shuttle on Singapore streets"
+        fill
+        className="object-cover object-center lg:hidden block"
         priority
       />
       {/* Gradient overlay at bottom */}
