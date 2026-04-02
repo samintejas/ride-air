@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RefObject } from "react";
 
 const linkCol1 = [
   {
@@ -27,9 +28,19 @@ const linkCol2 = [
   },
 ] as const;
 
-export function Footer() {
+export const Footer = ({
+  isFixed,
+  ref,
+}: {
+  isFixed?: boolean;
+  ref?: RefObject<HTMLDivElement | null>;
+}) => {
+  const className = isFixed
+    ? "fixed bottom-0 left-0 z-10 w-full bg-white"
+    : " w-full bg-white";
+
   return (
-    <footer className="bg-white w-full">
+    <footer className={className} ref={ref}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-[96px] pt-10 md:pt-[50px] pb-7">
         {/* Top section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -106,4 +117,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};

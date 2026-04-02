@@ -1,5 +1,4 @@
-import { Footer } from "@/components/footer";
-import { CtaBannerSection } from "@/components/sections/cta-banner";
+import LandingPage from "@/components/sections/animation";
 import { FeaturesSection } from "@/components/sections/features";
 import { FloatingHeader } from "@/components/sections/floating-header";
 import { HeroSection } from "@/components/sections/hero";
@@ -14,14 +13,15 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <FloatingHeader />
-      <HeroSection />
-      <FeaturesSection />
-      <RoutesSection />
-      <RideStepsSection />
-      <ImportantInfoSection />
-      <CtaBannerSection />
-      <Footer />
+      <main className="z-30">
+        <FloatingHeader />
+        <HeroSection />
+        <FeaturesSection />
+        <RoutesSection />
+        <RideStepsSection />
+        <ImportantInfoSection />
+      </main>
+      <LandingPage />
     </>
   );
 }

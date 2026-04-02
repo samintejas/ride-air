@@ -6,7 +6,7 @@ import { bookingLink } from "./hero";
 
 export function CtaBannerSection() {
   return (
-    <section className="relative h-[376px] lg:h-[820px] overflow-hidden">
+    <section className="relative z-30 h-screen  overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/cta-bg.jpg"
